@@ -1,6 +1,8 @@
 const getOpeningHours = require('../src/getOpeningHours');
 
 describe('Testes da função getOpeningHours', () => {
+  const msgclosed1 = 'The zoo is closed';
+  const msgopen1 = 'The zoo is open';
   test('verifica se getOpeningHours é uma função', () => {
     expect(typeof getOpeningHours).toBe('function');
   });
@@ -17,46 +19,42 @@ describe('Testes da função getOpeningHours', () => {
     expect(getOpeningHours()).toEqual(hours);
   });
   test('verifica se ao passar monday e qualquer horario retorna a mensagem the zoo is closed', () => {
-    const msg = 'The zoo is closed';
-    expect(getOpeningHours('monday', '09:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '10:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '11:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '12:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '07:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '06:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '05:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '04:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '03:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '02:00-AM')).toMatch(msg);
-    expect(getOpeningHours('monday', '01:00-AM')).toMatch(msg);
+    expect(getOpeningHours('monday', '09:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '08:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '10:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '11:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '12:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '07:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '06:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '05:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '04:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '03:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '02:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('monday', '01:00-AM')).toMatch(msgclosed1);
   });
   test('verifica se ao passar um dia da semana valido com um horario a mensagem recebida é the zoo is open', () => {
-    const msg = 'The zoo is open';
-    expect(getOpeningHours('Tuesday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('Wednesday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('Thursday', '10:00-AM')).toMatch(msg);
-    expect(getOpeningHours('Friday', '10:00-AM')).toMatch(msg);
-    expect(getOpeningHours('Saturday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('Sunday', '08:00-AM')).toMatch(msg);
+    expect(getOpeningHours('Tuesday', '08:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('Wednesday', '08:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('Thursday', '10:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('Friday', '10:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('Saturday', '08:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('Sunday', '08:00-AM')).toMatch(msgopen1);
   });
   test('verifica se ao passar dias em lowercase, o retorno é o mesmo', () => {
-    const msg = 'The zoo is open';
-    expect(getOpeningHours('tuesday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('wednesday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('thursday', '10:00-AM')).toMatch(msg);
-    expect(getOpeningHours('friday', '10:00-AM')).toMatch(msg);
-    expect(getOpeningHours('saturday', '08:00-AM')).toMatch(msg);
-    expect(getOpeningHours('sunday', '08:00-AM')).toMatch(msg);
+    expect(getOpeningHours('tuesday', '08:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('wednesday', '08:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('thursday', '10:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('friday', '10:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('saturday', '08:00-AM')).toMatch(msgopen1);
+    expect(getOpeningHours('sunday', '08:00-AM')).toMatch(msgopen1);
   });
   test('verifica se ao receber um horario que ainda não abriu ele retorna que o zoo is closed', () => {
-    const msg = 'The zoo is closed';
-    expect(getOpeningHours('tuesday', '07:00-AM')).toMatch(msg);
-    expect(getOpeningHours('wednesday', '07:00-AM')).toMatch(msg);
-    expect(getOpeningHours('thursday', '09:00-AM')).toMatch(msg);
-    expect(getOpeningHours('friday', '09:00-AM')).toMatch(msg);
-    expect(getOpeningHours('saturday', '07:00-AM')).toMatch(msg);
-    expect(getOpeningHours('sunday', '07:00-AM')).toMatch(msg);
+    expect(getOpeningHours('tuesday', '07:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('wednesday', '07:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('thursday', '09:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('friday', '09:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('saturday', '07:00-AM')).toMatch(msgclosed1);
+    expect(getOpeningHours('sunday', '07:00-AM')).toMatch(msgclosed1);
   });
   test('verifica se ao receber um dia da semana que não existe, retorne um erro', () => {
     expect(() => getOpeningHours('pedro', '07:00-AM')).toThrow(/^The day must be valid. Example: Monday$/);
@@ -89,17 +87,15 @@ describe('Testes da função getOpeningHours', () => {
     expect(() => getOpeningHours('tuesday', '08:200-AM')).toThrow(minutes);
   });
   test('verifica se os horarios de fechar estão batendo com a tabela', () => {
-    const msgclosed = 'The zoo is closed';
-    const msgopen = 'The zoo is open';
-    expect(getOpeningHours('tuesday', '06:00-PM')).toMatch(msgclosed);
-    expect(getOpeningHours('wednesday', '06:00-PM')).toMatch(msgclosed);
-    expect(getOpeningHours('thursday', '08:00-PM')).toMatch(msgclosed);
-    expect(getOpeningHours('friday', '08:00-PM')).toMatch(msgclosed);
-    expect(getOpeningHours('saturday', '10:00-PM')).toMatch(msgclosed);
-    expect(getOpeningHours('tuesday', '05:00-PM')).toMatch(msgopen);
-    expect(getOpeningHours('wednesday', '05:00-PM')).toMatch(msgopen);
-    expect(getOpeningHours('thursday', '07:00-PM')).toMatch(msgopen);
-    expect(getOpeningHours('friday', '07:00-PM')).toMatch(msgopen);
-    expect(getOpeningHours('saturday', '09:00-PM')).toMatch(msgopen);
+    expect(getOpeningHours('tuesday', '06:00-PM')).toMatch(msgclosed1);
+    expect(getOpeningHours('wednesday', '06:00-PM')).toMatch(msgclosed1);
+    expect(getOpeningHours('thursday', '08:00-PM')).toMatch(msgclosed1);
+    expect(getOpeningHours('friday', '08:00-PM')).toMatch(msgclosed1);
+    expect(getOpeningHours('saturday', '10:00-PM')).toMatch(msgclosed1);
+    expect(getOpeningHours('tuesday', '05:00-PM')).toMatch(msgopen1);
+    expect(getOpeningHours('wednesday', '05:00-PM')).toMatch(msgopen1);
+    expect(getOpeningHours('thursday', '07:00-PM')).toMatch(msgopen1);
+    expect(getOpeningHours('friday', '07:00-PM')).toMatch(msgopen1);
+    expect(getOpeningHours('saturday', '09:00-PM')).toMatch(msgopen1);
   });
 });
