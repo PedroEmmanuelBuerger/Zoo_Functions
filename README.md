@@ -1,31 +1,27 @@
 # Zoo Functions
-O Zoo Functions é um projeto desenvolvido para simular as funcionalidades de um zoológico, permitindo a manipulação e exibição de informações sobre diferentes animais. o sistema possui informações a respeito dos animais presentes no zoológico, colaboradores, horários de funcionamento e uma tabela de preços que varia de acordo com a idade das pessoas que o visitam.
 
+The Zoo Functions is a project developed to simulate the functionalities of a zoo, allowing manipulation and display of information about different animals. The system contains details about the animals present at the zoo, employees, operating hours, and a pricing table that varies according to the age of visitors.
 
+## Features
 
-## Funcionalidades
-O projeto possui as seguintes funcionalidades:
-- Listar animais: exibe a lista de todos os animais presentes no zoológico.
-- Listar Colaboradores: exibe a lista dos colaboradores do zoologico.
-- Listar e mostrar os horarios: mostra os horarios de cada parte do zoológico.
-- Calcular média de idade: calcula e exibe a média de idade de todos os animais no zoológico.
+The project includes the following features:
 
-## Tecnologias Utilizadas
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-- JavaScript
-- EsLinter
+- **List animals:** Displays the list of all animals present at the zoo.
+- **List employees:** Displays the list of employees working at the zoo.
+- **Display and show hours:** Shows the hours of operation for each part of the zoo.
+- **Calculate average age:** Calculates and displays the average age of all animals in the zoo.
 
-## Instalação
-Para utilizar o Zoo Functions localmente, siga os passos abaixo:
-1. Clone o repositório para sua máquina local:
-git clone https://github.com/PedroEmmanuelBuerger/project-Zoo_Functions.git
-2. Navegue até a pasta do projeto:
-cd project-Zoo_Functions
-3. Instale as dependências do projeto: npm install
-4. para rodar os testes use o seguinte comando: npm run tests
+## Technologies Used
 
-## Principais Aprendizados
-Durante o desenvolvimento deste projeto, foram explorados conceitos de programação JavaScript, usando lógica de programação para desenvolver um sistema de zoológico, e aprender a fazer clean code com o Eslinter.
+The project was developed using the following technologies:
 
-## Conclusão
-O Zoo Functions oferece uma simulação de um zoológico virtual, onde é possível buscar animais, funcionarios e horarios, além de calcular a média de idade dos animais. Foi uma ótima oportunidade para aprender e praticar conceitos de programação JavaScript e clean code!
+- **JavaScript**
+- **ESLint**
+
+## Key Learnings
+
+During the development of this project, I explored JavaScript programming concepts, using logic to develop a zoo management system, and learning how to apply clean code practices with ESLint.
+
+## Conclusion
+
+Zoo Functions provides a virtual zoo simulation where users can search for animals, employees, and operating hours, as well as calculate the average age of the animals. It was a great opportunity to learn and practice JavaScript programming and clean code!
